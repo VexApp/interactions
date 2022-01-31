@@ -1,13 +1,9 @@
-import { CommandType } from "../../types/Command";
+import { Interaction } from "../../structs/interaction";
+import { CommandType } from "../../types/command";
 
 export const Command: CommandType = {
     name: 'play',
-    execute: (req: any, res: any) => {
-        res.status(200).send({
-            type: 4,
-            data: {
-                content: "Currently this command is being rewritten to work with our new interaction systems!"
-            }
-        })
+    execute: (d: Interaction) => {
+        d.reply("Sorry, but currently this command is unavailable and is being rewritten to work with our new system!");
     }
 }

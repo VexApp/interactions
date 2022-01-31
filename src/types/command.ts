@@ -1,4 +1,6 @@
+import { Interaction } from "../structs/interaction";
+
 export type CommandType = {
     name: string,
-    execute: any
+    execute(interaction: Interaction): void
 }

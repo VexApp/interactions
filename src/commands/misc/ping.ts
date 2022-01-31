@@ -1,13 +1,14 @@
-import { CommandType } from "../../types/Command";
+import { EmbedBuilder } from "../../structs/builders";
+import { Interaction } from "../../structs/interaction";
+import { CommandType } from "../../types/command";
 
 export const Command: CommandType = {
     name: 'ping',
-    execute: (req: any, res: any) => {
-        res.status(200).send({
-            type: 4,
-            data: {
-                content: "Pong! :ping_pong:"
-            }
-        })
+    execute: (d: Interaction) => {
+        let emb = new EmbedBuilder();
+        emb.description("Pong! :ping_pong:")
+        emb.colour(0xADD8E6);
+
+        d.reply({ embeds: [emb.build] })
     }
 }
